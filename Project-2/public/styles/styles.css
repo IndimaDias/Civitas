@@ -2,6 +2,7 @@
   line-height: 2.5;
 }
 
+
 body,html{
   height: 100%;
 }
@@ -9,8 +10,6 @@ body,html{
   background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("../images/background.png");
   background-repeat: no-repeat;
   background-size : cover; 
-  /* filter: blur(20px); */
-  /* opacity: 0.1; */
   height: 100%;
 }
 
@@ -30,5 +29,20 @@ body,html{
 #btnSearch{
   float: right;
   background-color: rgba(14, 3, 39, 0.5)   ;
+}
+
+#medicalStaff  {
+  height:  750px;
+  width:  750px;
+  position: relative;
+  bottom : 280px;
+  opacity: .18;
+}
+
+#stats{
+  position: relative;
+  left: 900px;
+  padding: 5px;
+  border: 5px solid lawngreen;
 }
 
