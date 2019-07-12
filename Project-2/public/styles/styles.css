@@ -19,3 +19,16 @@ body,html{
   font-size: 100px;
   margin-top: 0;
 }
+
+#searchText{
+  border: 2px solid darkblue ;
+  background-color: white;
+  height: 30px;
+  width: 80%;
+}
+
+#btnSearch{
+  float: right;
+  background-color: rgba(14, 3, 39, 0.5)   ;
+}
+
