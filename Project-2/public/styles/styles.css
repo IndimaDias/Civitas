@@ -2,6 +2,7 @@
   line-height: 2.5;
 }
 
+
 body,html{
   height: 100%;
 }
@@ -19,3 +20,19 @@ body,html{
   font-size: 100px;
   margin-top: 0;
 }
+
+#medicalStaff  {
+  height:  750px;
+  width:  750px;
+  position: relative;
+  bottom : 280px;
+  opacity: .18;
+}
+
+#stats{
+  position: relative;
+  left: 900px;
+  padding: 5px;
+  border: 5px solid lawngreen;
+}
+
