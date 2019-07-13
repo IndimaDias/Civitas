@@ -61,3 +61,14 @@ body,html{
       color: darkblue;
       font-weight: bold;
   }
+
+  #userProfile{
+      width: 50%;
+      top: 25%;
+      border: solid 1px ;
+  }
+
+  h4{
+      text-align: center;
+      padding: 10px; 
+  }

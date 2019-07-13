@@ -61,17 +61,59 @@
                         <br>
                         <br>
 
-                        <a id ="createProfile" class = "center-align" href="/profile">Create Account</a>
+                        <a id ="createProfile" class = "modal-trigger" href="#userProfile">Create Account</a>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+        <!-- Modal Structure -->
+    <div id="userProfile" class="modal">
+            <div class="modal-content">
+                <h4 class="light-blue accent-1">Sign Up</h4>
+                <form id = "frmCreateProfile">
+                    <div class="row">
+                        <div class="col l5  m8 s12">
+                            <input class = "frmFields" id = "firstName" type="text" placeholder="First Name">
+                        </div>
+                        <div class="col l5 offset-l1 m8 s12">
+                            <input class = "frmFields" id = "lastName" type="text" placeholder="Last Name">
+                         </div>   
+                    </div>    
+
+                    <div class="row">
+                         <div class="col l5 m8 s12">
+                            <input class = "frmFields" id = "uName"type="text" placeholder="Username">
+                         </div>
+                    </div>
+
+                    <div class="row">
+                         <div class="col l5 m8 s12">
+                            <input class = "frmFields" id = "city" type="text" placeholder="City">
+                        </div>
+    
+                        <div class="col l5 offset-l1 m8 s12">
+                            <input class = "frmFields" id = "state" type="text" placeholder="State">
+                        </div>
+                    </div>                                                                    
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id = "btnSignUp" type="submit" class="btn blue">Sing Up</button>
+            </div>
+        </div>
+    
   </div>
 
 
+
+    <!-- attach jquery library -->
+    <script src="https://code.jquery.com/jquery.js"></script>
     <!-- javascript for materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type = "text/javascript" src="../public/js/index.js"></script>
 </body>
 
 
