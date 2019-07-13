@@ -117,11 +117,12 @@ var handleSignUp = function(event){
   
 
   var profile = {
-    firstName : $("#firstName").val().trim(),
+    firstName : $("#firstName")
+    .val().trim(),
     lastName : $("#lastName").val().trim(),
-    userName = $("$uName").val().trim(),
-    city = $('#city').val().trim(),
-    state = $("#state").val().trim()
+    userName : $("#uName").val().trim(),
+    city : $('#city').val().trim(),
+    state : $("#state").val().trim()
 
 }
 
