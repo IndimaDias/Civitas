@@ -12,8 +12,8 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/userProfile",
+      data: JSON.stringify(profile)
     });
   }
   // ,
@@ -123,6 +123,9 @@ var handleSignUp = function(event) {
       .val()
       .trim(),
     userName: $("#uName")
+      .val()
+      .trim(),
+    illness: $("#illness")
       .val()
       .trim(),
     city: $("#city")
