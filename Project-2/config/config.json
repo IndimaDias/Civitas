@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "katie",
-    "password": "abc123",
+    "username": "root",
+    "password": "HmYz#4g7p1pH",
     "database": "illness_db",
     "host": "localhost",
     "dialect": "mysql"
