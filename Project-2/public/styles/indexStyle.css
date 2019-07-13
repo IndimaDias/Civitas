@@ -1,0 +1,63 @@
+
+body,html{
+    height: 100%;
+  }
+  #mainContainer{
+    background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("../images/background.png");
+    background-repeat: no-repeat;
+    background-size : cover; 
+    height: 100%;
+  }
+  
+  #appName{
+    font-family: 'Francois One', sans-serif;
+    font-size: 100px;
+    margin-top: 0;
+  }
+  
+  #searchText{
+    border: 2px solid darkblue ;
+    background-color: white;
+    height: 30px;
+    width: 80%;
+  }
+  
+  #btnSearch{
+    float: right;
+    background-color: rgba(14, 3, 39, 0.5)   ;
+  }
+
+  #logInForm{
+      border: solid 1px black;
+      width: 100%;
+      padding: 40px;
+  }
+
+  #userName{
+    border: 1px solid ;
+    background-color: white;
+    height: 30px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+  }
+
+  label{
+    font-size: 18px;
+    color: darkblue;
+    font-weight: bold;
+   
+  }
+
+  #btnLogIn{
+      margin-right: 30%;
+      margin-left: 30%;
+      width: 40%;
+  }
+
+  #createProfile{
+      width: 40%;
+      margin-left: 30%;
+      margin-right: 30%;
+      color: darkblue;
+      font-weight: bold;
+  }
