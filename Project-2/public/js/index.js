@@ -100,41 +100,48 @@ var API = {
 
 // var usStates = new UsaStates();
 
-//handleCreateAccount is called when the create account link is clicked. 
+//handleCreateAccount is called when the create account link is clicked.
 // This will poulate the form in the modal
 
 var $createProfile = $("#createProfile");
 var $btnSignUp = $("#btnSignUp");
 
 // This function is called when the create account link is clicked
-var handleCreateAccount = function(){
+var handleCreateAccount = function() {
   $("#userProfile").show();
-}
+};
 
-// this function is called when the Sign up button in the form is clicked 
-var handleSignUp = function(event){
+// this function is called when the Sign up button in the form is clicked
+var handleSignUp = function(event) {
   event.preventDefault();
-  
 
   var profile = {
-    firstName : $("#firstName")
-    .val().trim(),
-    lastName : $("#lastName").val().trim(),
-    userName : $("#uName").val().trim(),
-    city : $('#city').val().trim(),
-    state : $("#state").val().trim()
-
-}
+    firstName: $("#firstName")
+      .val()
+      .trim(),
+    lastName: $("#lastName")
+      .val()
+      .trim(),
+    userName: $("#uName")
+      .val()
+      .trim(),
+    city: $("#city")
+      .val()
+      .trim(),
+    state: $("#state")
+      .val()
+      .trim()
+  };
 
   API.saveProfile(profile);
-}
+};
 
 // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
-$createProfile.on("click",handleCreateAccount);
-$btnSignUp.on("click",handleSignUp);
+$createProfile.on("click", handleCreateAccount);
+$btnSignUp.on("click", handleSignUp);
 
-$(function(){
+$(function() {
   $("#userProfile").hide();
 });
