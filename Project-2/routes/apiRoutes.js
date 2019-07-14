@@ -5,7 +5,9 @@ module.exports = function(app) {
   // Get all examples
   app.get("/api/userProfile", function(req, res) {
     db.User.findAll({}).then(function(dbProfile) {
-      res.json(dbProfile);
+      console.log("rest");
+      // res.json(dbProfile);
+      res.redirect("/public/profile");
     });
   });
 
@@ -17,21 +19,25 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/user/profile/:userName", function(req, res) {
-    console.log("Test");
-    console.log(__dirname);
-    console.log(path.resolve(__dirname, '../public/profile.html'));
+  app.get("/api/userProfile/:userName", function(req, res) {
+    db.User.findOne({
+      where:{
+        userName : req.params.userName
+      }
+    }).then(function(dbProfile){
+      console.log("Test");
+      console.log(__dirname);
+      console.log(path.resolve(__dirname, '../public/profile.html'));
+      // res.sendFile(path.resolve(__dirname, '../public/profile.html'));
+      res.redirect("/profile");
+    });
     
-    res.sendFile(path.resolve(__dirname, '../public/profile.html'));
+    
+    
     
     // res.redirect("/public/profile.html");
     // });
-  // Delete an example by id
-  app.delete("/api/userProfile/:id", function(req, res) {
-    db.User.destroy({ where: { id: req.params.id } }).then(function(dbProfile) {
-      res.json(dbProfile);
-    });
-  });
+
 // });
 
   // Delete an example by id
@@ -40,4 +46,11 @@ module.exports = function(app) {
   //     res.json(dbExample);
   //   });
   // });
+});
+  // Delete an example by id
+  app.delete("/api/userProfile/:id", function(req, res) {
+    db.User.destroy({ where: { id: req.params.id } }).then(function(dbProfile) {
+      res.json(dbProfile);
+    });
+  });
 };
