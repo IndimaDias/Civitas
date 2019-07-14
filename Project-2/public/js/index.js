@@ -22,6 +22,8 @@ var API = {
     return $.ajax({
       url: "/user/profile/" + userName,
       type: "GET"
+      url: "api/userProfile",
+      data: JSON.stringify(profile)
     });
   }
   // ,
@@ -110,12 +112,12 @@ var $btnSignUp = $("#btnSignUp");
 var $btnLogIn = $("#btnLogIn");
 
 // This function is called when the create account link is clicked
-var handleCreateAccount = function(){
+var handleCreateAccount = function() {
   $("#userProfile").show();
 };
 
-// this function is called when the Sign up button in the form is clicked 
-var handleSignUp = function(event){
+// this function is called when the Sign up button in the form is clicked
+var handleSignUp = function(event) {
   event.preventDefault();
 
   var profile ={
@@ -136,6 +138,29 @@ var handleLogIn = function(){
   console.log(userName);
   API.getProfile(userName)
 };
+  var profile = {
+    firstName: $("#firstName")
+      .val()
+      .trim(),
+    lastName: $("#lastName")
+      .val()
+      .trim(),
+    userName: $("#uName")
+      .val()
+      .trim(),
+    illness: $("#illness")
+      .val()
+      .trim(),
+    city: $("#city")
+      .val()
+      .trim(),
+    state: $("#state")
+      .val()
+      .trim()
+  };
+
+  API.saveProfile(profile);
+};
 
 // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
@@ -144,6 +169,6 @@ $createProfile.on("click",handleCreateAccount);
 $btnSignUp.on("click",handleSignUp);
 $btnLogIn.on("click",handleLogIn);
 
-$(function(){
+$(function() {
   $("#userProfile").hide();
 });
