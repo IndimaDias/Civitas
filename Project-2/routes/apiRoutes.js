@@ -13,7 +13,7 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/userProfile", function(req, res) {
-    console.log(req.body)
+    console.log(req.body);
     db.User.create(req.body).then(function(dbProfile) {
       res.json(dbProfile);
     });
