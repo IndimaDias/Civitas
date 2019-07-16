@@ -60,11 +60,10 @@ var $btnSignUp = $("#btnSignUp");
 var $btnLogIn = $("#btnLogIn");
 
 function isEmpty(obj) {
-    for(var key in obj) {
-      if(obj.hasOwnProperty(key))
-          return false;
+  for(var key in obj) { 
+    if(obj.hasOwnProperty(key)) return false;
     }
-    return true;
+  return true;
     }
 
 // This function is called when the create account link is clicked
