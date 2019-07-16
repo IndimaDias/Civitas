@@ -20,35 +20,19 @@ module.exports = function(app) {
   });
 
   app.get("/api/userProfile/:userName", function(req, res) {
+   
     db.User.findOne({
       where:{
         userName : req.params.userName
       }
     }).then(function(dbProfile){
-      console.log("Test");
-      console.log(__dirname);
-      console.log(path.resolve(__dirname, '../public/profile.html'));
-      // res.sendFile(path.resolve(__dirname, '../public/profile.html'));
-      res.redirect("/profile");
+
+        res.json(dbProfile);
+      
+      });
     });
     
-    
-    
-    
-    // res.redirect("/public/profile.html");
-    // });
-
-// });
-
-  // Delete an example by id
-  // app.delete("/api/examples/:id", function(req, res) {
-  //   db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-  //     res.json(dbExample);
-  //   });
-  // });
-});
-  // Delete an example by id
-  app.delete("/api/userProfile/:id", function(req, res) {
+    app.delete("/api/userProfile/:id", function(req, res) {
     db.User.destroy({ where: { id: req.params.id } }).then(function(dbProfile) {
       res.json(dbProfile);
     });
