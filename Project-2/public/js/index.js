@@ -11,7 +11,8 @@ var API = {
       data: JSON.stringify(profile),
       success: function(dbProfile){
         console.log(dbProfile);
-        window.location.href = "../profile.html?" + dbProfile;
+        localStorage.setItem('profile', JSON.stringify(profileData));
+        window.location.href = "../profile.html?" ;
       }
       
     });
@@ -24,18 +25,22 @@ var API = {
       url: '/api/userProfile/' + userName,
       data: { userName: userName },
       success: function(dbProfile) {
+        if(isEmpty(dbProfile)){
+          alert("User not found");
+          return;
+        }
         var profileData = {
           firstName: dbProfile.firstName,
-          lastName: dbProfile.lastName,
+          lastName: dbProfile.lastName, 
           illness: dbProfile.illness,
           city: dbProfile.city,
           state: dbProfile.state
         };
 
         console.log(profileData);
-        var JObject = JSON.stringify(profileData) ;
-        console.log(JObject);
-        window.location.href = "../profile.html?" + JObject;
+        localStorage.setItem('profile', JSON.stringify(profileData));      
+        // console.log(JObject);
+        window.location.href = "../profile.html?";
       }
     });
   }
@@ -49,9 +54,18 @@ var API = {
 //handleCreateAccount is called when the create account link is clicked.
 // This will poulate the form in the modal
 
+
 var $createProfile = $("#createProfile");
 var $btnSignUp = $("#btnSignUp");
 var $btnLogIn = $("#btnLogIn");
+
+function isEmpty(obj) {
+    for(var key in obj) {
+      if(obj.hasOwnProperty(key))
+          return false;
+    }
+    return true;
+    }
 
 // This function is called when the create account link is clicked
 var handleCreateAccount = function() {
