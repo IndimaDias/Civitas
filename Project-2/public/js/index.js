@@ -11,8 +11,8 @@ var API = {
       data: JSON.stringify(profile),
       success: function(dbProfile){
         console.log(dbProfile);
-        localStorage.setItem('profile', JSON.stringify(profileData));
-        window.location.href = "../profile.html?" ;
+        localStorage.setItem('profile', JSON.stringify(dbProfile));
+        window.location.href = "../profile.html?";
       }
       
     });
@@ -73,9 +73,10 @@ var handleCreateAccount = function() {
 
 // *********************function handleSignUp****************************************
 // this function is called when the Sign up button in the form is clicked
-var handleSignUp = function(event) {
+var handleSignUp = function(event) {  
   event.preventDefault();
-  $("#divError").show();
+console.log("test");
+  $("#divError").hide();
   // helper function ^^^^^^^^^^^^^^^^^^^^^^^^validateForm^^^^^^^^^^^^^^^^^^^^^^^^^^^
   function validateForm(){
     // This function will validate the form inputs
@@ -88,27 +89,27 @@ var handleSignUp = function(event) {
       valid = false;  
     }
 
-    if ($("#lastName").val()==""){
+    if ($("#lastName").val() ==""){
       errMsg.text("Last Name should be entered") ;
       valid = false;
     }
 
-    if ($("#uName").val()==""){
+    if ($("#uName").val() ==""){
       errMsg.text("Username should be entered") ;
       valid = false;
     }
 
-    if ($("#illness").val()==""){
+    if ($("#illness").val() ==""){
       errMsg.text("Illness should be entered") ;
       valid = false;
     }
 
-    if ($("#city").val()==""){
+    if ($("#city").val() ==""){
       errMsg.text("City should be entered") ;
       valid = false;
     }
 
-    if ($("#state").val()==""){
+    if ($("#state").val() ==""){
       errMsg.text("State should be entered") ;
       valid = false;
     }else{
@@ -117,18 +118,19 @@ var handleSignUp = function(event) {
         valid = false;
       }
     }
+    console.log(valid);
 
     if(!valid){
       $("#divError").append(errMsg);
       $("#divError").show();
-      return valid;
+     
     }
-
+    return valid;
   }
   // ^^^^^^^^^^^^^^^^End of helper function for validating form inputs^^^^^^^^^^^^^^^^^^^^^^^^
   
   var validForm = validateForm();
-
+  console.log(validForm);
   if (validForm){
 
     var profile = {
@@ -168,7 +170,11 @@ var handleLogIn = function(){
   API.getProfile(userName);
  
 };
- 
+
+$createProfile.on("click",handleCreateAccount);
+$btnSignUp.on("click",handleSignUp);
+$btnLogIn.on("click",handleLogIn);
+
 // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
@@ -178,8 +184,6 @@ $(function() {
   $("#userProfile").hide();
   $("#divError").hide();
 
-$createProfile.on("click",handleCreateAccount);
-$btnSignUp.on("click",handleSignUp);
-$btnLogIn.on("click",handleLogIn);
+
 
 });
