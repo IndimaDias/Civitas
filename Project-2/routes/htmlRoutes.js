@@ -4,15 +4,15 @@ var path = require("path");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    // db.Users.findAll({}).then(function(dbUsers) {
-    res.sendFile(path.join(__dirname, "../views/index.html"));
+    res.sendFile(path.join(__dirname, "../public/index.html"));
     // });
   });
 
-  app.get("/user/profile", function(req, res) {
-    // db.Users.findAll({}).then(function(dbUsers) {
-    res.sendFile(path.join(__dirname, "../views/profile.html"));
-    // });
+  app.get("/profile", function(req, res) {
+  //   // db.Users.findAll({}).then(function(dbUsers) {
+  //     console.log("test");
+    res.sendFile(path.join(__dirname, "../public/profile.html"));
+  //   // });
   });
 
   // Load example page and pass in an example by id

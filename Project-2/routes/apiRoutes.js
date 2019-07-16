@@ -1,10 +1,13 @@
 var db = require("../models");
+var path = require("path");
 
 module.exports = function(app) {
   // Get all examples
   app.get("/api/userProfile", function(req, res) {
     db.User.findAll({}).then(function(dbProfile) {
-      res.json(dbProfile);
+      console.log("rest");
+      // res.json(dbProfile);
+      res.redirect("/public/profile");
     });
   });
 
@@ -16,8 +19,20 @@ module.exports = function(app) {
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/userProfile/:id", function(req, res) {
+  app.get("/api/userProfile/:userName", function(req, res) {
+   
+    db.User.findOne({
+      where:{
+        userName : req.params.userName
+      }
+    }).then(function(dbProfile){
+
+        res.json(dbProfile);
+      
+      });
+    });
+    
+    app.delete("/api/userProfile/:id", function(req, res) {
     db.User.destroy({ where: { id: req.params.id } }).then(function(dbProfile) {
       res.json(dbProfile);
     });
