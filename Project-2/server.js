@@ -11,9 +11,9 @@ var PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "/public")));
 
-
+console.log(path.join(__dirname, "/public"));
 // Routes
 require("./routes/apiRoutes")(app);
 
@@ -37,5 +37,5 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
-
+console.log(path.join(__dirname, "/public"));
 module.exports = app;
