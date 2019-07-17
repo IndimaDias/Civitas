@@ -13,6 +13,7 @@ $(function(){
     
 
 
+
 var userIllness = searchStr.illness;
 
 // $.get("/api/illness/" + userIllness+"&"+userName, function(data) {
@@ -45,5 +46,6 @@ var userIllness = searchStr.illness;
  
 
 });
+
 
 });

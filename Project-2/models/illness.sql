@@ -1,0 +1,1 @@
+SELECT * FROM illness_db.Users;
