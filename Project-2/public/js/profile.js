@@ -21,5 +21,5 @@ $.get("/api/illness", function(data) {
       $("#others" + i).append("<h3>city: " + data[i].city + "</h2>");
       $("#others" + i).append("<h3>state: " + data[i].state + "</h2>");
     }
-
+  
 });
