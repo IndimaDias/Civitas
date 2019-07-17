@@ -31,6 +31,12 @@ module.exports = function(app) {
       
       });
     });
+
+    app.get("api/illness", function (req, res){
+      db.user.findAll({}).then(function(dbProfile){
+        res.json(dbProfile);
+      })
+    });
     
     app.delete("/api/userProfile/:id", function(req, res) {
     db.User.destroy({ where: { id: req.params.id } }).then(function(dbProfile) {
