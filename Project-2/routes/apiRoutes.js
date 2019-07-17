@@ -14,9 +14,20 @@ module.exports = function(app) {
   // Create a new example
   app.post("/api/userProfile", function(req, res) {
     console.log(req.body);
-    db.User.create(req.body).then(function(dbProfile) {
-      res.json(dbProfile);
+    db.User.count({where : {userName : req.body.userName}})
+    .then((count) => {
+      if(count > 0) {
+        console.log(count);
+        return res.status(500).send("Username already taken");
+        
+      }else {
+        db.User.create(req.body).then(function(dbProfile) {
+         
+          res.json(dbProfile);
+        });
+      }
     });
+
   });
 
   app.get("/api/userProfile/:userName", function(req, res) {

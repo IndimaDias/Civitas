@@ -7,5 +7,6 @@ $(function(){
     $("#city").text(searchStr.city);
     $("#state").text(searchStr.state);
     $("#illness").text(searchStr.illness);
-    last
+
+    
 });
