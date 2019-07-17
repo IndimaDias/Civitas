@@ -1,4 +1,3 @@
-
 // // The API object contains methods for each kind of request we'll make
 var API = {
   saveProfile: function(profile) {
@@ -9,23 +8,22 @@ var API = {
       type: "POST",
       url: "api/userProfile",
       data: JSON.stringify(profile),
-      success: function(dbProfile){
+      success: function(dbProfile) {
         console.log(dbProfile);
-        localStorage.setItem('profile', JSON.stringify(dbProfile));
+        localStorage.setItem("profile", JSON.stringify(dbProfile));
         window.location.href = "../profile.html?";
       }
-      
     });
   },
 
   getProfile: function(userName) {
-    $.ajax({  
-      type: 'GET',  
-      dataType: 'json',
-      url: '/api/userProfile/' + userName,
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: "/api/userProfile/" + userName,
       data: { userName: userName },
       success: function(dbProfile) {
-        if(isEmpty(dbProfile)){
+        if (isEmpty(dbProfile)) {
           alert("User not found");
           return;
         }
@@ -38,7 +36,7 @@ var API = {
         };
 
         console.log(profileData);
-        localStorage.setItem('profile', JSON.stringify(profileData));      
+        localStorage.setItem("profile", JSON.stringify(profileData));
         // console.log(JObject);
         window.location.href = "../profile.html?";
       }
@@ -54,17 +52,18 @@ var API = {
 //handleCreateAccount is called when the create account link is clicked.
 // This will poulate the form in the modal
 
-
 var $createProfile = $("#createProfile");
 var $btnSignUp = $("#btnSignUp");
 var $btnLogIn = $("#btnLogIn");
 
 function isEmpty(obj) {
-  for(var key in obj) { 
-    if(obj.hasOwnProperty(key)) return false;
+  for (var key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      return false;
     }
+  }
   return true;
-    }
+}
 
 // This function is called when the create account link is clicked
 var handleCreateAccount = function() {
@@ -73,9 +72,9 @@ var handleCreateAccount = function() {
 
 // *********************function handleSignUp****************************************
 // this function is called when the Sign up button in the form is clicked
-var handleSignUp = function(event) {  
+var handleSignUp = function(event) {
   event.preventDefault();
-console.log("test");
+  console.log("test");
   $("#divError").hide();
   // helper function ^^^^^^^^^^^^^^^^^^^^^^^^validateForm^^^^^^^^^^^^^^^^^^^^^^^^^^^
   function validateForm(){
@@ -131,8 +130,7 @@ console.log("test");
   
   var validForm = validateForm();
   console.log(validForm);
-  if (validForm){
-
+  if (validForm) {
     var profile = {
       firstName: $("#firstName")
         .val()
@@ -159,31 +157,27 @@ console.log("test");
 };
 // *****************************end of function handleSignUp**********************************
 
-
-
-var handleLogIn = function(){
+var handleLogIn = function() {
   event.preventDefault();
-  
   var userName = $("#userName").val().trim();
- 
   console.log(userName);
   API.getProfile(userName);
- 
 };
 
-$createProfile.on("click",handleCreateAccount);
-$btnSignUp.on("click",handleSignUp);
-$btnLogIn.on("click",handleLogIn);
+$createProfile.on("click", handleCreateAccount);
+$btnSignUp.on("click", handleSignUp);
+$btnLogIn.on("click", handleLogIn);
 
 // Add event listeners to the submit and delete buttons
 // $submitBtn.on("click", handleFormSubmit);
 // $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
-// document on load 
+// document on load
+
 $(function() {
   $("#userProfile").hide();
   $("#divError").hide();
-
-
-
+  $("#userProfile").modal({
+    dismissible: true
+  });
 });
