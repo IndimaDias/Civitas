@@ -1,7 +1,8 @@
 
 // // The API object contains methods for each kind of request we'll make
 var API = {
-  saveProfile: function(profile,result) {
+  // method to save user entered data to create an account
+  saveProfile: function(profile) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -10,12 +11,12 @@ var API = {
       url: "api/userProfile",
       data: JSON.stringify(profile),
       success: function(dbProfile){
-          result = true;
+          // save profile details in local storage for reference
           localStorage.setItem('profile', JSON.stringify(dbProfile));
           window.location.href = "../profile.html?";               
       },
       error : function(xhr,status,errMsg){
-
+        // if profile creation returns an error
         if(xhr.status&&xhr.status==500){          
            var errorM = xhr.responseText;          
            displayMessage(errorM);
@@ -28,6 +29,7 @@ var API = {
     });
   },
 
+  // method to get user details from the database when log in
   getProfile: function(userName) {
     $.ajax({  
       type: 'GET',  
@@ -44,9 +46,10 @@ var API = {
           lastName: dbProfile.lastName, 
           illness: dbProfile.illness,
           city: dbProfile.city,
-          state: dbProfile.state
+          state: dbProfile.state,
+          userName : dbProfile.userName
         };
-
+        // store data in local storage
         localStorage.setItem('profile', JSON.stringify(profileData));              
         window.location.href = "../profile.html?";
       }
@@ -148,7 +151,7 @@ console.log("test");
     return valid;
   }
   // ^^^^^^^^^^^^^^^^End of helper function for validating form inputs^^^^^^^^^^^^^^^^^^^^^^^^
-  var result = true;
+  
   var validForm = validateForm();
   
   if (validForm){
@@ -189,16 +192,17 @@ var handleLogIn = function(){
  
 };
 
+// create account link
 $createProfile.on("click",handleCreateAccount);
+// signup button on the modal
 $btnSignUp.on("click",handleSignUp);
+// login button
 $btnLogIn.on("click",handleLogIn);
 
-// Add event listeners to the submit and delete buttons
-// $submitBtn.on("click", handleFormSubmit);
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 // document on load 
 $(function() {
+  // hide modal and error message
   $("#userProfile").hide();
   $("#divError").hide();
 
