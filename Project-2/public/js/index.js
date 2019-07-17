@@ -1,5 +1,6 @@
 // // The API object contains methods for each kind of request we'll make
 var API = {
+  // method to save user entered data to create an account
   saveProfile: function(profile) {
     return $.ajax({
       headers: {
@@ -8,14 +9,26 @@ var API = {
       type: "POST",
       url: "api/userProfile",
       data: JSON.stringify(profile),
-      success: function(dbProfile) {
-        console.log(dbProfile);
-        localStorage.setItem("profile", JSON.stringify(dbProfile));
-        window.location.href = "../profile.html?";
+
+      success: function(dbProfile){
+          // save profile details in local storage for reference
+          localStorage.setItem('profile', JSON.stringify(dbProfile));
+          window.location.href = "../profile.html?";               
+      },
+      error : function(xhr,status,errMsg){
+        // if profile creation returns an error
+        if(xhr.status&&xhr.status==500){          
+           var errorM = xhr.responseText;          
+           displayMessage(errorM);
+         }else{
+           displayMessage("Something went wrong");
+         }
       }
+
     });
   },
 
+  // method to get user details from the database when log in
   getProfile: function(userName) {
     $.ajax({
       type: "GET",
@@ -32,12 +45,12 @@ var API = {
           lastName: dbProfile.lastName, 
           illness: dbProfile.illness,
           city: dbProfile.city,
-          state: dbProfile.state
+          state: dbProfile.state,
+          userName : dbProfile.userName
         };
 
-        console.log(profileData);
-        localStorage.setItem("profile", JSON.stringify(profileData));
-        // console.log(JObject);
+        // store data in local storage
+        localStorage.setItem('profile', JSON.stringify(profileData));              
         window.location.href = "../profile.html?";
       }
     });
@@ -56,14 +69,28 @@ var $createProfile = $("#createProfile");
 var $btnSignUp = $("#btnSignUp");
 var $btnLogIn = $("#btnLogIn");
 
+// ********************function to check if the object is empty******************************
 function isEmpty(obj) {
   for (var key in obj) {
     if (obj.hasOwnProperty(key)) {
       return false;
     }
-  }
+      }
   return true;
 }
+
+// ******************************************************************************************
+// ******************************* This function will dynamically add the error message*******************
+function displayMessage(errorMessage){
+  
+   var errMsg = $("<p>");
+   errMsg.css("color","red");
+   errMsg.text(errorMessage) ;
+   $("#divError").append(errMsg);
+   $("#divError").show();
+}
+
+// *********************************************************************************************
 
 // This function is called when the create account link is clicked
 var handleCreateAccount = function() {
@@ -79,49 +106,47 @@ var handleSignUp = function(event) {
   // helper function ^^^^^^^^^^^^^^^^^^^^^^^^validateForm^^^^^^^^^^^^^^^^^^^^^^^^^^^
   function validateForm(){
     // This function will validate the form inputs
-    var errMsg = $("<p>");
-    errMsg.css("color","red");
+    errMsg = "";
     var valid = true;
 
     if ($("#firstName").val() == ""){ 
-      errMsg.text("First Name should be entered") ;
+      errMsg ="First Name should be entered" ;
       valid = false;  
     }
 
     if ($("#lastName").val() ==""){
-      errMsg.text("Last Name should be entered") ;
+      errMsg = "Last Name should be entered" ;
       valid = false;
     }
 
     if ($("#uName").val() ==""){
-      errMsg.text("Username should be entered") ;
+      errMsg ="Username should be entered" ;
       valid = false;
     }
 
     if ($("#illness").val() ==""){
-      errMsg.text("Illness should be entered") ;
+      errMsg = "Illness should be entered" ;
       valid = false;
     }
 
     if ($("#city").val() ==""){
-      errMsg.text("City should be entered") ;
+      errMsg = "City should be entered" ;
       valid = false;
     }
 
     if ($("#state").val() ==""){
-      errMsg.text("State should be entered") ;
+      errMsg = "State should be entered" ;
       valid = false;
     }else{
       if($("#state").val().trim().lenth>2){
-        errMsg.text("Use abbrivation for the state name") ;
+        errMsg = "Use abbrivation for the state name" ;
         valid = false;
       }
     }
-    console.log(valid);
+  
 
     if(!valid){
-      $("#divError").append(errMsg);
-      $("#divError").show();
+      displayMessage(errMsg);
      
     }
     return valid;
@@ -129,8 +154,9 @@ var handleSignUp = function(event) {
   // ^^^^^^^^^^^^^^^^End of helper function for validating form inputs^^^^^^^^^^^^^^^^^^^^^^^^
   
   var validForm = validateForm();
-  console.log(validForm);
-  if (validForm) {
+  
+  if (validForm){
+
     var profile = {
       firstName: $("#firstName")
         .val()
@@ -151,30 +177,35 @@ var handleSignUp = function(event) {
         .val()
         .trim()
     };
-    console.log(profile);
+   
     API.saveProfile(profile);
+    
   };
 };
 // *****************************end of function handleSignUp**********************************
 
-var handleLogIn = function() {
-  event.preventDefault();
-  var userName = $("#userName").val().trim();
-  console.log(userName);
+
+
+var handleLogIn = function(){
+  event.preventDefault();  
+  var userName = $("#userName").val().trim();r
   API.getProfile(userName);
 };
 
-$createProfile.on("click", handleCreateAccount);
-$btnSignUp.on("click", handleSignUp);
-$btnLogIn.on("click", handleLogIn);
 
-// Add event listeners to the submit and delete buttons
-// $submitBtn.on("click", handleFormSubmit);
-// $exampleList.on("click", ".delete", handleDeleteBtnClick);
+// create account link
+$createProfile.on("click",handleCreateAccount);
+// signup button on the modal
+$btnSignUp.on("click",handleSignUp);
+// login button
+$btnLogIn.on("click",handleLogIn);
+
+
 
 // document on load
 
 $(function() {
+  // hide modal and error message
   $("#userProfile").hide();
   $("#divError").hide();
   $("#userProfile").modal({
