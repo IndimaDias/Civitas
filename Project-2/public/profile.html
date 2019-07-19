@@ -16,17 +16,17 @@
 <body>
   
   
-  <div class="jumbotron">
-   <h3>Welcome Back to your page.</h3>
+  <div class= "center jumbotron" >
+   <h3>Welcome Back <span id="first"></span>!</h3>
     </div>
 
   <h5>We hope you are feeling ok. Here are your stats and others who share your illness.  We hope  you can find 
    comfort in sharing your story with others. </h5>
 
-   <div class="row">
-      <div class="col l5 s12 m6">
+   <!-- <div class="row">
+      <div class="col l5 s12 m6"> -->
 <!-- Div for user stats -->
-        <div class="card-medium">
+        <!-- <div class="card-medium">
           <div id='stats'>
             <h6>Your stats</h6>
             <ul>
@@ -37,9 +37,10 @@
               <li>Illness:<div id="illness"></div></li>
             </ul>
           </div>
-        </div>        
-      </div>
+        </div>         -->
+      <!-- </div> -->
       <!-- Div for contacts table -->
+      <div class="row">
       <div id = "divTable" class="col l6 s12 m6">
         <h4>Community</h4>
         <table id = "contactsTbl">
@@ -53,12 +54,14 @@
      </div>
     </div>
 
-  <div id='articles'>
+  <div id='articles'class= "col 16 s 12 m6">
   <h5>Here are some great articles about your illness to see what is in the news:</h5>
   </div>
+
+</div>
   
   
-<img src='/images/staff.png' id='medicalStaff'>
+<img src='/images/staff.png' id='medicalStaff' class= "center">
 
 
 <script src="https://code.jquery.com/jquery.js"></script>
