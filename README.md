@@ -1,13 +1,36 @@
-# Project-2-
+# Civitas
+### Project 2
 
 The purpose of our project is to connect people with an illness to others with the same illness in an online community. The community would offer resources and support in the way of articles, area groups, and the ability to socialize with others.
 
-API's: In order to gather the resources we used the healthfinder API to gather articles, resources, and information.
+A deployed version of the app can be found [Here]().
 
-New Tech: For a new technology, we used nodemailer, which will send email and connect the users to each other to build the sense of community.
+## Run Locally
+1. Clone this repository: https://github.com/Mdo352/Project-2-.git  
+1. Install the Node dependencies: _node install_  
+1. Run the server: _node server.js_  
+1. Open your browser and visit: _localhost:3000_
 
-Front-end: used materialize for some styling as well as css and bootstrap.
+## Built With
+- jQuery
+- MaterializeCSS
+- Health Finder API
+- MedlinePlus API
+- SQL
+- npm
+  - express 
+  - sequelize
+  - axios
+  - nodemailer *
+  
+  _* New Tech: [nodemailer](https://nodemailer.com/about/) Build community by allowing users to send emails to each other_
+  
+## Future Development
+- [ ] Allow users to recover forgotten usernames
+- [ ] Create a forum for users to interact
+- [ ] Schedule meetups through the site 
 
-Back-end: built a table to accumulate the users data and information with Sequelize,
-
-Future Developement: add a blog post question and answer page for reccomendations (dr's, meds, etc.), events manager to host meet-ups etc,
+## Team
+| [Indima Dias](https://github.com/IndimaDias) | [Katie Hennessey ](https://github.com/henkat13) | [Mike Jean-Jacques](https://github.com/Mdo352) | [Pat Mahon](https://github.com/pmahon628) |
+|:---------:|:--------:|:-----:|:----------------------:|
+| @IndimaDias | @henkat13 | @Mdo352 | @pmahon628 |
