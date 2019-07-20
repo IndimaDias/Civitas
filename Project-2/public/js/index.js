@@ -25,6 +25,7 @@ var API = {
          }
       }
 
+
     });
   },
 
@@ -55,7 +56,19 @@ var API = {
         window.location.href = "../profile.html?";
       }
     });
-  }
+  },
+
+  saveEmail: async function(emailData) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "/send",
+      data: JSON.stringify(emailData)
+  });
+  
+}
 };
 
 // this npm package will give the list of states in US
@@ -214,7 +227,7 @@ $btnSearch.on("click",function(event) {
   $.get("api/about/"+search,function(data){
     console.log(data);
     var url = $("#url")
-    url.attr("href",data.replace("'",""));
+    url.attr("href",data.replace(/'/g,""));
     url.text(search);
     // url.text()
     // // window.location.href = "about.html";    
@@ -222,6 +235,26 @@ $btnSearch.on("click",function(event) {
   });
   
   getApiResult(search);
+  });
+
+  // ___________________
+
+  $("#emailSubmit").on("click",function(){
+    event.preventDefault();
+    var test = {
+      to: $("#toEmail").val().trim(),
+      from: $("#fromEmail").val().trim(),
+      subject: $("#subject").val().trim(),
+      message: $("#message").val().trim(),
+    }
+  
+    API.saveEmail(test);
+  
+      $("#toEmail").val("")
+      $("#fromEmail").val("")
+      $("#subject").val("")
+      $("#message").val("")
+  
   });
 
 // document on load

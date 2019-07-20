@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cevitas | email</title>
+    <!-- css to reset the default styles -->
+    <link rel="stylesheet" href="/styles/reset.css">
+
+    <!-- link to materialize  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- link to fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Faster+One|Francois+One&display=swap" rel="stylesheet">
+
+    <!-- css for icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+    <!-- link to css in the page -->
+    <link rel="stylesheet" href="/styles/indexStyle.css">
+
+</head>
+
+
+<body>
+  
+    <div class="container">
+        <div class="row">
+            <form class="col s10">
+               <div class=" card-panel white darken-2">
+
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <input id="toEmail" type="email" value="" class="validate">
+                            <label for="toEmail">To:</label>
+                            <span class="helper-text" data-error="Please enter a valid email address" data-success="valid"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s10">
+                            <input id="fromEmail" type="email" class="validate">
+                            <label for="fromEmail">From:</label>
+                            <span class="helper-text" data-error="Please enter a valid email address" data-success="valid"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="subject" type="text">
+                            <label for="subject">Subject</label>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="message" class="materialize-textarea"></textarea>
+                            <label for="message">Message</label>
+                        </div>
+                    </div>
+
+                    <button id="emailSubmit" class="btn waves-effect waves-light">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+
+               </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- attach jquery library -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- javascript for materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type = "text/javascript" src="/js/index.js"></script>
+</body>
+
+
+ 
+</html>
