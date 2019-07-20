@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "unhdb1",
-    "database": "illness_db",
-    "host": "localhost",
+    "username": "xtk5h5fvrvptxp0p	",
+    "password": "dwkkd4sy1aedkhl2",
+    "database": "cwpdsvlwqi10t6yv",
+    "host": "cdm1s48crk8itlnr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
