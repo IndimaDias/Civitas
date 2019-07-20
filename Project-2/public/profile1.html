@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Profile</title>
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="/styles/reset.css">
+
+  <!-- link to materialize  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- link to fonts  -->
+  <link href="https://fonts.googleapis.com/css?family=Faster+One|Francois+One&display=swap" rel="stylesheet">
+
+  <!-- css for icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/styles.css">
+
+  
+</head>
+<body>
+  
+  
+  <div class="jumbotron">
+   <h3>Welcome Back to your page.</h3>
+    </div>
+
+  <h5>We hope you are feeling ok. Here are your stats and others who share your illness.  We hope  you can find 
+   comfort in sharing your story with others. </h5>
+
+   <div class="row">
+      <div class="col l5 s12 m6">
+<!-- Div for user stats -->
+        <h4>Community</h4>
+        <table id = "contactsTbl">
+           <tr>
+             <th>First Name</th>
+             <th>Last Name</th>
+             <th>City</th>
+             <th>State</th>
+           </tr>
+        </table>              
+      </div>
+      <!-- Div for contacts table -->
+      <div id = "divTable" class="col l6 s12 m6">
+        <div id='articles'>
+          <h5>Here are some great articles about your illness to see what is in the news:</h5>
+          </div>   
+     </div>
+    </div>
+
+
+    <img src='/images/staff.png' id='medicalStaff'>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- javascript for materialize -->    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type = "text/javascript" src="/js/profile.js"></script>
+</body>
+</html>

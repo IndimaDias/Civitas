@@ -47,7 +47,8 @@ var API = {
           illness: dbProfile.illness,
           city: dbProfile.city,
           state: dbProfile.state,
-          userName : dbProfile.userName
+          userName : dbProfile.userName,
+          email : dbProfile.email
         };
         // store data in local storage
         localStorage.setItem('profile', JSON.stringify(profileData));              
@@ -164,6 +165,9 @@ console.log("test");
         .val()
         .trim(),
       userName: $("#uName")
+        .val()
+        .trim(),
+      email: $("#email")
         .val()
         .trim(),
       illness: $("#illness")

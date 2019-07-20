@@ -1,3 +1,22 @@
+html,body{
+  height: 100%;
+}
+
+body{
+  background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url("../images/staff.png");
+  background-repeat: no-repeat;
+  background-size : cover; 
+  height: 100%;
+}
+
+.jumbotron {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  padding-bottom: 5%;
+ }
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -23,4 +42,33 @@
 li>div{
   width: 70%;
   float: right;
+}
+
+#btnConnect{
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.rowMain{
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 80%;
+}
+
+.tblHead{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#articles{
+  background-color: bisque;
+  border: solid 0.2 brown;
+  margin-left: 100px;
+  margin-top: 30px;
+}
+
+.centerDiv{
+  width: 100%;
+  margin-left: 50%;
+  margin-right: 50%;
 }
