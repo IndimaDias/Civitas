@@ -7,14 +7,18 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
-    "host": "localhost",
+    "username": "xtk5h5fvrvptxp0p",
+    "password": "dwkkd4sy1aedkhl2",
+    "database": "cwpdsvlwqi10t6yv",
+    "host": "cdm1s48crk8itlnr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "logging": false
   },
   "production": {
+    "username": "xtk5h5fvrvptxp0p",
+    "password": "dwkkd4sy1aedkhl2",
+    "database": "cwpdsvlwqi10t6yv",
+    "host": "cdm1s48crk8itlnr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
