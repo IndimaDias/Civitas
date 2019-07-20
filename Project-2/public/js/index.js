@@ -184,8 +184,6 @@ var handleSignUp = function(event) {
 };
 // *****************************end of function handleSignUp**********************************
 
-
-
 var handleLogIn = function(){
   event.preventDefault();  
   var userName = $("#userName").val().trim();r
@@ -212,3 +210,54 @@ $(function() {
     dismissible: true
   });
 });
+// *********** Code to make API call  to healthfider.gov to get articles related to certain search terms ***********
+
+var apiKey = 'rvcfuidvogznrmzf';
+var host = 'https://healthfinder.gov';
+var path = '/api/v2/';
+var file = 'TopicSearch.json';
+//  var lang = getParameterByName('lang') ? getParameterByName('lang') : 'en';
+var query = '?api_key=' + apiKey;
+var apiUrl = host + path + file + query;
+var apiDisplayResourceURL = 'apiDisplayResource.html' + query + '&';
+var resources;
+// var searchText;
+let queryURL = "https://cors-anywhere.herokuapp.com/";
+
+function getApiResult(txt) {
+ var output = $.ajax({
+url: apiUrl + '&keyword=' + txt,
+ type: 'GET',
+ data: {},
+dataType: 'json',
+success: function (data) {
+    console.log(data)
+if (data.Result.Error == "True") {
+    // if (data.Result.Error == "True") {
+        document.getElementById("articles").innerHTML = '<h3>' 
+        + data.Result.Message + '</h3>';
+      
+    content += "<ul>"
+    }
+else {
+    var content = '';
+//    (data.Result.Resources !== null) 
+            resources = data.Result.Resources.Resource;
+            console.log(resources)
+            for (var i = 0; i < resources.length; i++) {
+                content += '<li><a href="' + apiDisplayResourceURL + resources[i].Type + 'Id=' + resources[i].Id + '" target="_blank">' + resources[i].Title + '</a></li>';
+           
+           console.log(content) }
+            content += '</ul>';  
+            document.getElementById("articles").innerHTML = content;
+         }
+}
+ })
+}
+$("#search").on("submit", function(event) {
+    event.preventDefault();
+   //  var queryURL = buildQueryURL();         
+    console.log('health');
+    var search = $("#term").val().trim();
+    getApiResult(search);
+    }):
