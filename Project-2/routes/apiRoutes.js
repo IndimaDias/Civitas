@@ -4,6 +4,7 @@ var fs = require('fs');
 var xml2js = require('xml2js').parseString;
 const axios = require('axios'); 
 var util = require("util");
+var nodemailer = require("nodemailer");
 
 const Op = db.Sequelize.Op
 
@@ -94,5 +95,45 @@ module.exports = function(app) {
       });
 
   });
+
+
+  // ------------------
+
+  app.post("/send", function(req, res) {
+    console.log(req.body);
+
+    let transporter = nodemailer.createTransport({
+      host: "smtp.mail.yahoo.com",
+      port: 587,
+      secure: false, // true for 465, false for other ports
+      tls:{
+        rejectUnauthorized:false
+      },
+      auth: {
+        user: "moneymike717@yahoo.com", // generated ethereal user
+        pass: "xrkpuganfzoowsks" // generated ethereal password
+      }
+    });
+  
+    // send mail with defined transport object
+    // let info = await transporter.sendMail({
+    let mailOptions = {
+        // should be replaced with real recipient's account
+        from: "moneymike717@yahoo.com",
+        to: 'moneymike717@yahoo.com',
+        subject: req.body.subject,
+        body: req.body.message
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+          return console.log(error);
+      }
+      console.log('Message %s sent: %s', info.messageId, info.response);
+    });
+    // res.redirect("/")
+
+  });
+
 
 };

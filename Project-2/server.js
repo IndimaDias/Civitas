@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var path = require("path");
+var bodyParser = require("body-parser");
 // var exphbs = require("express-handlebars");
 
 var db = require("./models");
@@ -12,6 +13,9 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "/public")));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 console.log(path.join(__dirname, "/public"));
 // Routes

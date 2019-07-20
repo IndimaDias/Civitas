@@ -3,10 +3,7 @@ $(function(){
     var searchStr = JSON.parse(localStorage.getItem('profile'));
     console.log(searchStr.firstName);
     $("#first").text(searchStr.firstName);
-    // $("#last").text(searchStr.lastName);
-    // $("#city").text(searchStr.city);
-    // $("#state").text(searchStr.state);
-    // $("#illness").text(searchStr.illness);
+
 
     var userName = searchStr.userName;
     
@@ -16,12 +13,12 @@ $(function(){
 
 var userIllness = searchStr.illness;
 
-// $("#btnConnect").on("click",function(){
-//     console.log("Send email");
-// });
+
 
 $(document).on("click", "#btnConnect",function() {
-    console.log("Send email");
+    console.log("email");
+    window.location.href = "../email.html";
+//    
 });
 
 // $.get("/api/illness/" + userIllness+"&"+userName, function(data) {
@@ -59,7 +56,7 @@ $(document).on("click", "#btnConnect",function() {
 $.get("api/about/"+userIllness,function(data){
     console.log(data);
     var url = $("#url")
-    url.attr("href",data.replace("'",""));
+    url.attr("href",data.replace(/'/g,""));
     url.text(userIllness);
   });
 
