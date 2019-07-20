@@ -77,3 +77,21 @@ body,html{
       text-align: center;
       padding: 10px; 
   }
+
+  .listItem{
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  #articles{
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+
+  #url{
+    font-size : 30px;
+    font-weight: bolder;
+    width: 100%;
+    margin-left: 50%;
+    margin-right:50%;
+  }

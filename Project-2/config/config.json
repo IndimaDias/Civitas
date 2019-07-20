@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "katie",
-    "password": "Jack1348",
+    "username": "root",
+    "password": "unhdb1",
     "database": "illness_db",
     "host": "localhost",
     "dialect": "mysql"

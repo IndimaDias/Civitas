@@ -46,7 +46,8 @@ var API = {
           illness: dbProfile.illness,
           city: dbProfile.city,
           state: dbProfile.state,
-          userName : dbProfile.userName
+          userName : dbProfile.userName,
+          email : dbProfile.email
         };
 
         // store data in local storage
@@ -64,10 +65,12 @@ var API = {
 
 //handleCreateAccount is called when the create account link is clicked.
 // This will poulate the form in the modal
+// import  getApiResult from "./api.js"
 
 var $createProfile = $("#createProfile");
 var $btnSignUp = $("#btnSignUp");
 var $btnLogIn = $("#btnLogIn");
+var $btnSearch = $("#btnSearch");
 
 // ********************function to check if the object is empty******************************
 function isEmpty(obj) {
@@ -167,6 +170,9 @@ var handleSignUp = function(event) {
       userName: $("#uName")
         .val()
         .trim(),
+      email: $("#email")
+        .val()
+        .trim(),
       illness: $("#illness")
         .val()
         .trim(),
@@ -186,7 +192,7 @@ var handleSignUp = function(event) {
 
 var handleLogIn = function(){
   event.preventDefault();  
-  var userName = $("#userName").val().trim();r
+  var userName = $("#userName").val().trim();
   API.getProfile(userName);
 };
 
@@ -198,7 +204,25 @@ $btnSignUp.on("click",handleSignUp);
 // login button
 $btnLogIn.on("click",handleLogIn);
 
+$btnSearch.on("click",function(event) {
+  event.preventDefault();
+ //  var queryURL = buildQueryURL();         
+  console.log('health');
+  var search = $("#searchText").val().trim();
+  $("#articlHeading").text("Reaserch Articles on " + search);
 
+  $.get("api/about/"+search,function(data){
+    console.log(data);
+    var url = $("#url")
+    url.attr("href",data.replace("'",""));
+    url.text(search);
+    // url.text()
+    // // window.location.href = "about.html";    
+    console.log("get");
+  });
+  
+  getApiResult(search);
+  });
 
 // document on load
 
@@ -212,52 +236,10 @@ $(function() {
 });
 // *********** Code to make API call  to healthfider.gov to get articles related to certain search terms ***********
 
-var apiKey = 'rvcfuidvogznrmzf';
-var host = 'https://healthfinder.gov';
-var path = '/api/v2/';
-var file = 'TopicSearch.json';
-//  var lang = getParameterByName('lang') ? getParameterByName('lang') : 'en';
-var query = '?api_key=' + apiKey;
-var apiUrl = host + path + file + query;
-var apiDisplayResourceURL = 'apiDisplayResource.html' + query + '&';
-var resources;
-// var searchText;
-let queryURL = "https://cors-anywhere.herokuapp.com/";
-
-function getApiResult(txt) {
- var output = $.ajax({
-url: apiUrl + '&keyword=' + txt,
- type: 'GET',
- data: {},
-dataType: 'json',
-success: function (data) {
-    console.log(data)
-if (data.Result.Error == "True") {
-    // if (data.Result.Error == "True") {
-        document.getElementById("articles").innerHTML = '<h3>' 
-        + data.Result.Message + '</h3>';
-      
-    content += "<ul>"
-    }
-else {
-    var content = '';
-//    (data.Result.Resources !== null) 
-            resources = data.Result.Resources.Resource;
-            console.log(resources)
-            for (var i = 0; i < resources.length; i++) {
-                content += '<li><a href="' + apiDisplayResourceURL + resources[i].Type + 'Id=' + resources[i].Id + '" target="_blank">' + resources[i].Title + '</a></li>';
-           
-           console.log(content) }
-            content += '</ul>';  
-            document.getElementById("articles").innerHTML = content;
-         }
-}
- })
-}
-$("#search").on("submit", function(event) {
-    event.preventDefault();
-   //  var queryURL = buildQueryURL();         
-    console.log('health');
-    var search = $("#term").val().trim();
-    getApiResult(search);
-    }):
+// $("#search").on("submit", function(event) {
+//     event.preventDefault();
+//    //  var queryURL = buildQueryURL();         
+//     console.log('health');
+//     var search = $("#term").val().trim();
+//     getApiResult(search);
+//     });

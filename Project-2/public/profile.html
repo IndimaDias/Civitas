@@ -1,67 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- materialize CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <!-- JS materialize  link -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 
-  <!-- CSS Link -->
-  <link rel="stylesheet" href="/styles/styles.css">
-  <title>Document</title>
+    <link rel="stylesheet" href="/styles/reset.css">
+
+    <!-- link to materialize  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- link to fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Faster+One|Francois+One&display=swap" rel="stylesheet">
+
+    <!-- css for icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+    <!-- link to css in the page -->
+    <link rel="stylesheet" href="/styles/styles.css">
+
 </head>
 <body>
-  
-  
-  <div class="jumbotron">
-   <h3>Welcome Back to your page.</h3>
-    </div>
+    <!-- <div class="container"> -->
 
-  <h5>We hope you are feeling ok. Here are your stats and others who share your illness.  We hope  you can find 
-   comfort in sharing your story with others. </h5>
+    
+    <!-- <button id = "btnConnect" class="btn">Test</button> -->
+        <div class="center jumbotron">
+            <h3>Welcome Back <span id="first"></span>!</h3>
 
-   <div class="row">
-      <div class="col l5 s12 m6">
-<!-- Div for user stats -->
-        <div class="card-medium">
-          <div id='stats'>
-            <h6>Your stats</h6>
-            <ul>
-              <li>First Name:<div id="first"></div></li>
-              <li>Last Name:<div id="last"></div></li>
-              <li>City:<div id="city"></div></li>
-              <li>State:<div id="state"></div></li>
-              <li>Illness:<div id="illness"></div></li>
-            </ul>
-          </div>
-        </div>        
-      </div>
-      <!-- Div for contacts table -->
-      <div id = "divTable" class="col l6 s12 m6">
-        <h4>Community</h4>
-        <table id = "contactsTbl">
-           <tr>
-             <th>First Name</th>
-             <th>Last Name</th>
-             <th>City</th>
-             <th>State</th>
-           </tr>
-        </table>
-     </div>
-    </div>
-
-  <div id='articles'>
-  <h5>Here are some great articles about your illness to see what is in the news:</h5>
-  </div>
-  
-  
-<img src='/images/staff.png' id='medicalStaff'>
+            <h5>We hope you are feeling ok. Here are your stats and others who share your illness.  We hope  you can find
+                comfort in sharing your story with others. </h5>
+        </div>
+    
 
 
-<script src="https://code.jquery.com/jquery.js"></script>
-<script type = "text/javascript" src="/js/profile.js"></script>
+        <div class="row rowMain">
+            <div class="col l7 s12 m6">
+      <!-- Div for user stats -->
+              <h4 class="center">COMMUNITY</h4>
+              <table id = "contactsTbl" class="striped">
+                  <thead>
+                        <tr class="tblHead">
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>City</th>
+                            <th>State</th>
+                        </tr>
+                  </thead>
+
+              </table>              
+            </div>
+            <!-- Div for contacts table -->
+            <div  class="col l5 s12 m6">              
+              <h4 class = "centerDiv">BE INFORMED!!!</h4>
+
+              <a id ="url"></a>
+
+              <div id='articles'>
+                <h5 id = articlHeading ></h5>
+                <h3 id = "articlesH3">
+    
+                </h3>
+                <div id = "articleList" class="row">
+    
+                </div>
+             </div>
+
+            </div>
+        </div>  
+    <!-- </div>           -->
+          
+        <!-- attach jquery library -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- javascript for materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type = "text/javascript" src="/js/api.js"></script>
+    <script type = "text/javascript" src="/js/profile.js"></script>
 </body>
 </html>

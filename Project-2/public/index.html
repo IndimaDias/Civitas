@@ -21,6 +21,7 @@
     
     <!-- link to css in the page -->
     <link rel="stylesheet" href="/styles/indexStyle.css">
+   
 
 </head>
 
@@ -45,6 +46,9 @@
                        </div>
                       
                     </form>
+
+                    <a id ="url"></a>
+
                 <!-- </div> -->
             </div>
 
@@ -71,12 +75,12 @@
         </div>
     </div>
 
-    <div class="card-medium">
+    <!-- <div class="card-medium">
         <div class="search-container">
             <form id="search" method="POST">
               <input id="term" type="text" placeholder="Search.." name="search">
               <button id="submit" type="submit">Submit</button>
-            </form>
+            </form> -->
 
         <!-- Modal Structure -->
     <div id="userProfile" class="modal">
@@ -102,6 +106,11 @@
                          <div class="col l5 m8 s12">
                             <input class = "frmFields" id = "uName"type="text" placeholder="Username">
                          </div>
+
+                         <div class="col l5 offset-l1 m8 s12">
+                            <input class = "frmFields" id = "email" type="text" placeholder="Email">
+                         </div> 
+
                     </div>
 
                     <div class="row">
@@ -127,15 +136,19 @@
             </div>
         </div>
     
+        <div id='articles'>
+            <h5 id = articlHeading ></h5>
+            <h3 id = "articlesH3">
+
+            </h3>
+            <div id = "articleList" class="row">
+
+            </div>
+         </div>
+
   </div>
 
-  <div id='articles'>
-    <h5>Here are some great articles about your illness to see what is in the news:</h5>
-    <h3>
-      
-      
-    </h3>
-    </div>
+
 
 
 
@@ -143,7 +156,9 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- javascript for materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type = "text/javascript" src="/js/api.js"></script>
     <script type = "text/javascript" src="/js/index.js"></script>
+    
 </body>
 
 

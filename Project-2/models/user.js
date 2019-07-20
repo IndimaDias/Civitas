@@ -43,6 +43,13 @@ module.exports = function(sequelize, DataTypes) {
         // limit length to 2 spaces
         len: [2, 2]
       }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      validate: {
+        isEmail: true
+      }
     }
   });
 
