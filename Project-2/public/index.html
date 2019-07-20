@@ -21,6 +21,7 @@
     
     <!-- link to css in the page -->
     <link rel="stylesheet" href="/styles/indexStyle.css">
+   
 
 </head>
 
@@ -29,7 +30,7 @@
   <div id = "mainContainer">
     <div  class="container">
         <div class="row">
-            <h1 id = "appName">ABCDEF</h1>
+            <h1 id = "appName">CIVITAS</h1>
         </div>
 
         <!-- section for the search option and lognin -->
@@ -45,34 +46,47 @@
                        </div>
                       
                     </form>
+
+                    <a id ="url"></a>
+
                 <!-- </div> -->
             </div>
 
             <!-- This section is for the log in window  -->
             <div class="col l5 offset-l1 s12 m12">
-                <form id = logInForm>
+                
+                 <form id = logInForm>
                     <div class="row">
+                        
                         <label for="userName">Username</label>
                         <input id = "userName" type="text" placeholder="Username">
                        
 
-                        <button id = "btnLogIn" type = "submit" class="btn light-blue accent-4">Sign In</button>
+                        <button id = "btnLogIn" type = "submit" class="btn grey darken-4">Sign In</button>
                         <br>
                         <br>
                         <br>
 
                         <a id ="createProfile" class = "modal-trigger" href="#userProfile">Create Account</a>
                     </div>
+                    
                 </form>
             </div>
         </div>
     </div>
 
+    <!-- <div class="card-medium">
+        <div class="search-container">
+            <form id="search" method="POST">
+              <input id="term" type="text" placeholder="Search.." name="search">
+              <button id="submit" type="submit">Submit</button>
+            </form> -->
+
         <!-- Modal Structure -->
     <div id="userProfile" class="modal">
             <div class="modal-content">
                 <!-- <button class="modal-close"> <i class="material-icons">close</i></button> -->
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat"><i class="material-icons">close</i></a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat modal-trigger"><i class="material-icons">close</i></a>
                 <h4 class="light-blue accent-1">Sign Up</h4>
 
                 <div id = "divError" class="row">
@@ -122,7 +136,19 @@
             </div>
         </div>
     
+        <div id='articles'>
+            <h5 id = articlHeading ></h5>
+            <h3 id = "articlesH3">
+
+            </h3>
+            <div id = "articleList" class="row">
+
+            </div>
+         </div>
+
   </div>
+
+
 
 
 
@@ -130,7 +156,9 @@
     <script src="https://code.jquery.com/jquery.js"></script>
     <!-- javascript for materialize -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type = "text/javascript" src="/js/api.js"></script>
     <script type = "text/javascript" src="/js/index.js"></script>
+    
 </body>
 
 

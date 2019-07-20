@@ -9,8 +9,9 @@ $(function(){
     // $("#illness").text(searchStr.illness);
 
     var userName = searchStr.userName;
-
     
+    
+
 
 
 var userIllness = searchStr.illness;
@@ -55,8 +56,15 @@ $(document).on("click", "#btnConnect",function() {
  
 
 });
+$.get("api/about/"+userIllness,function(data){
+    console.log(data);
+    var url = $("#url")
+    url.attr("href",data.replace("'",""));
+    url.text(userIllness);
+  });
 
-
+$("#articlHeading").text("Reaserch Articles on " + userIllness);
+  getApiResult(userIllness);
 });
 
 

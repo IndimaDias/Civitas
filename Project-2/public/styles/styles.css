@@ -61,7 +61,6 @@ li>div{
 }
 
 #articles{
-  background-color: bisque;
   border: solid 0.2 brown;
   margin-left: 100px;
   margin-top: 30px;
@@ -71,4 +70,23 @@ li>div{
   width: 100%;
   margin-left: 50%;
   margin-right: 50%;
+}
+
+.listItem{
+  font-size: 18px;
+  padding: 15px;
+}
+
+#articles{
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+#url{
+  font-size : 30px;
+  font-weight: bolder;
+  width: 100%;
+  margin-left: 50%;
+  margin-right:50%;
+
 }

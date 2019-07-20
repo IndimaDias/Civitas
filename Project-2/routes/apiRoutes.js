@@ -1,5 +1,9 @@
 var db = require("../models");
 var path = require("path");
+var fs = require('fs');
+var xml2js = require('xml2js').parseString;
+const axios = require('axios'); 
+var util = require("util");
 
 const Op = db.Sequelize.Op
 
@@ -66,4 +70,29 @@ module.exports = function(app) {
       res.json(dbProfile);
     });
   });
+
+  app.get("/api/about/:illness",function(req,res){
+    console.log("Test");
+    var xmlStr = ""; 
+
+    
+
+    axios.get('https://wsearch.nlm.nih.gov/ws/query?db=healthTopics&term='+req.params.illness)
+      .then(response => {
+        //   console.log(response.data)
+        // xmlStr = response.data.;
+        xml2js(response.data, function (err, result) {
+            xmlStr = util.inspect(result.nlmSearchResult.list[0].document[0].$.url, false, null);
+
+            console.log(xmlStr);
+            res.send(xmlStr);
+        });
+       
+      })
+      .catch(error => {
+        console.log(error);
+      });
+
+  });
+
 };
