@@ -13,6 +13,7 @@ let queryURL = "https://cors-anywhere.herokuapp.com/";
 
 // export {getApiResult};
 
+
 function getApiResult(txt) {
     var output = $.ajax({
                 url: apiUrl + '&keyword=' + txt,
@@ -37,10 +38,11 @@ function getApiResult(txt) {
                          console.log(resources);
 
                         for (var i = 0; i < resources.length; i++) {
-                          //   content += '<li><a href="' + apiDisplayResourceURL + resources[i].Type + 'Id=' + resources[i].Id + '" target="_blank">' + resources[i].Title + '</a></li>';
-                           //   console.log(content) }
-                           //   content += '</ul>';  
-                            //   document.getElementById("articleList").innerHTML = content;
+                            content += '<li><a href="' + apiDisplayResourceURL + resources[i].Type + 'Id=' + resources[i].Id + '" target="_blank">' + resources[i].Title + '</a></li>';
+                            apiDisplayResourceURL = resources[i].AccessibleVersion;
+                             console.log(content) }
+                             content += '</ul>';  
+                             document.getElementById("articleList").innerHTML = content;
                            var li = $('<li />'),
                             a  = $('<a />',  {href : apiDisplayResourceURL + resources[i].Type});
                            // sp = $('<span />', {'class' : 'user-list', text : user});
@@ -52,7 +54,7 @@ function getApiResult(txt) {
                          }
 
                          articlesList.append($UL);
-                    }
+                  
                 }
-            })
-}
+            });
+        };
