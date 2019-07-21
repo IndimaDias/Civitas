@@ -3,7 +3,7 @@
 
 The purpose of our project is to connect people with an illness to others with the same illness in an online community. The community would offer resources and support in the way of articles, area groups, and the ability to socialize with others.
 
-A deployed version of the app can be found [Here]().
+A deployed version of the app can be found [Here](https://gittastic-project-2.herokuapp.com/).
 
 ## Run Locally
 1. Clone this repository: https://github.com/Mdo352/Project-2-.git  
