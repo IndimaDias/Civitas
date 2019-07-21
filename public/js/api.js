@@ -41,6 +41,7 @@ function getApiResult(txt) {
                            //   console.log(content) }
                            //   content += '</ul>';  
                             //   document.getElementById("articleList").innerHTML = content;
+                            apiDisplayResourceURL = resources[i].AccessibleVersion;
                            var li = $('<li />'),
                             a  = $('<a />',  {href : apiDisplayResourceURL + resources[i].Type});
                            // sp = $('<span />', {'class' : 'user-list', text : user});
