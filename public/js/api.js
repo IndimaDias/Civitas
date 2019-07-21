@@ -47,6 +47,7 @@ function getApiResult(txt) {
                            // sp = $('<span />', {'class' : 'user-list', text : user});
 
                            a.text(resources[i].Title);
+                           a.addClass("url");
                            li.addClass("listItem");
 
                            $UL.append( li.append( a) );
