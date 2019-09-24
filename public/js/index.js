@@ -233,7 +233,7 @@ $btnSearch.on("click",function(event) {
     // // window.location.href = "about.html";    
     console.log("get");
   });
-  
+  $("#articleList").empty();
   getApiResult(search);
   });
 
@@ -266,6 +266,7 @@ $(function() {
   $("#userProfile").modal({
     dismissible: true
   });
+  getApiResult("*");
 });
 // *********** Code to make API call  to healthfider.gov to get articles related to certain search terms ***********
 

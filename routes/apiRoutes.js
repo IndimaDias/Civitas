@@ -84,7 +84,7 @@ module.exports = function(app) {
         // xmlStr = response.data.;
         xml2js(response.data, function (err, result) {
             xmlStr = util.inspect(result.nlmSearchResult.list[0].document[0].$.url, false, null);
-
+            console.log(util.inspect(result.nlmSearchResult.list[0].document[0].$.content, false, null));
             console.log(xmlStr);
             res.send(xmlStr);
         });
