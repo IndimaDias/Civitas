@@ -22,59 +22,88 @@
     <!-- link to css in the page -->
     <link rel="stylesheet" href="/styles/indexStyle.css">
    
-
+ 
 </head>
 
 
 <body>
   <div id = "mainContainer">
-    <div  class="container">
-        <div class="row">
-            <h1 id = "appName">CIVITAS</h1>
-        </div>
+     <div class="row">
 
-        <!-- section for the search option and lognin -->
-        <div class="row">
-            <!-- section for the search option -->
-            <div class="col l6 m12 s12">
-                <!-- <div class="row"> -->
-                    <form id = "searchForm">
-                       <div class="row">
-                            <input id ="searchText" type="text" placeholder="Search">
+     
 
-                            <button id = "btnSearch" type="submit" class="btn"><i class="material-icons">search</i></button>
-                       </div>
-                      
-                    </form>
-
-                    <a class = "url" id ="url"></a>
-
-                <!-- </div> -->
-            </div>
-
-            <!-- This section is for the log in window  -->
-            <div class="col l5 offset-l1 s12 m12">
+        <div  class="col s12 m12 l9">
+            <div class="row">
+                <div class="col l6 s12 m12">
+                    <h1 id = "appName">CIVITAS</h1>
+                </div>
                 
-                 <form id = logInForm>
-                    <div class="row">
-                        
-                        <label for="userName">Username</label>
-                        <input id = "userName" type="text" placeholder="Username">
-                       
+                <div class="col l6 m12 s12">
+                        <!-- <div class="row"> -->
+                            <form id = "searchForm">
+                            <div class="row">
+                                    <input id ="searchText" type="text" placeholder= "  Search">
+                                    <button id = "btnSearch" type="submit" class="btn"><i class="material-icons">search</i></button>
+                            </div>
+                            
+                            </form>
 
-                        <button id = "btnLogIn" type = "submit" class="btn grey darken-4">Sign In</button>
-                        <br>
-                        <br>
-                        <br>
+                            <a class = "url" id ="url"></a>
 
-                        <a id ="createProfile" class = "modal-trigger" href="#userProfile">Create Account</a>
+                        <!-- </div> -->
+                </div>
+            </div>
+
+            <!-- section for the search option and lognin -->
+        
+                    <!-- section for the search option -->
+                  
+
+
+        
+            <div id='articles'>
+                    <h5 id = articlHeading ></h5>
+                    <h3 id = "articlesH3">
+
+                    </h3>
+                    <div id = "articleList" class="row">
+
                     </div>
-                    
-                </form>
             </div>
         </div>
-    </div>
 
+        <div class="col l3 s12 m12">
+                    
+            <form id = logInForm>
+            <div class="row">
+                <h3>
+                    Log in
+                </h3>
+            </div>    
+            <div class="row">
+                
+                <label for="userName">Username</label>
+                <input id = "userName" type="text" placeholder="Username">
+                
+                <label for="password">Password</label>
+                <input id = "password" type="text" placeholder="Password">
+                <div class="row center-align">
+                        <button id = "btnLogIn" type = "submit" class="btn grey darken-4">Sign In</button>
+                </div>
+                
+                <br>
+                <br>
+                <br>
+
+                <div class="row center-align">
+                    <a id ="createProfile" class = "modal-trigger" href="#userProfile">Create Account</a>
+                </div>
+              
+            </div>
+            
+            </form>
+        </div>
+    </div>     
     <!-- <div class="card-medium">
         <div class="search-container">
             <form id="search" method="POST">
@@ -136,15 +165,7 @@
             </div>
         </div>
     
-        <div id='articles'>
-            <h5 id = articlHeading ></h5>
-            <h3 id = "articlesH3">
 
-            </h3>
-            <div id = "articleList" class="row">
-
-            </div>
-         </div>
 
   </div>
 

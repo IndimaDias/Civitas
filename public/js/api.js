@@ -7,10 +7,7 @@ var query = "?api_key=" + apiKey;
 var apiUrl = host + path + file + query;
 var apiDisplayResourceURL = "apiDisplayResource.html" + query + "&";
 var resources;
-// var searchText;
-// let queryURL = "https://cors-anywhere.herokuapp.com/";
 
-// export {getApiResult};
 
 function getApiResult(txt) {
   var content = "";
@@ -27,7 +24,7 @@ function getApiResult(txt) {
         content += "<ul>";
       } else {
         var articlesList = $("#articleList");
-        // articlesList.addClass("carousel");
+       
         var articleCarousel = $("<div>").addClass("carousel");
 
         
@@ -40,8 +37,7 @@ function getApiResult(txt) {
             var carouselItem = $("<div />"),
             a = $("<a />", { href: apiDisplayResourceURL + resources[i].Type }),
             img = $("<img/>",{ src: resources[i].ImageUrl});
-            // a.addClass("carousel-item");
-            // a.append(img);
+          
             
 
             a.text(resources[i].Title);
@@ -49,10 +45,7 @@ function getApiResult(txt) {
             carouselItem.addClass("carousel-item")
             carouselItem.append(img,a);
             a.addClass("url text-center");
-          // li.addClass("listItem");
 
-          // $UL.append(li.append(a));
-          // $UL.append(img);
           articleCarousel.append(carouselItem);
         }
 
