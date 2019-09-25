@@ -39,10 +39,9 @@ body,html{
   
   #btnSearch{    
     float: right;
-    background-color:white;
-    color: grey;
+    background-color:rgb(160, 154, 154);    
     position: relative;
-    border: none;
+    font-size: 10px;
   }
 
   #logInForm{
@@ -64,8 +63,8 @@ body,html{
   }
 
   label{
-    font-size: 16px;
-    color: black;
+    font-size: 13px;
+    color: white;
     font-weight: bold;
    
   }
@@ -116,4 +115,11 @@ body,html{
     width: 400px;
     text-align: center;
     z-index: 100;
+  }
+
+  #communitDesc{
+    font-family:'Francois One', sans-serif; 
+    font-size: 18px;
+    line-height: 30px;
+    margin: 3%;
   }

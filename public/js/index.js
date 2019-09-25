@@ -234,6 +234,7 @@ $btnSearch.on("click",function(event) {
     console.log("get");
   });
   $("#articleList").empty();
+  $("#communitDesc").empty();
   getApiResult(search);
   });
 
