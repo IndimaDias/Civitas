@@ -87,9 +87,25 @@ body,html{
       border: solid 1px ;
   }
 
-  h4{
+  #closeBtnRow{
+    margin-bottom: 0;
+    font-size: 12px;
+  }
+
+  #btnSignUp{
+    background-color: rgb(5, 65, 105);
+  }
+
+
+  .profileHeading{
       text-align: center;
       padding: 10px; 
+      font-family: 'Francois One', sans-serif;
+      background-color: rgb(5, 65, 105);
+      margin-top:0;
+      border-radius: 5px;
+      font-size: 18px;
+      color: white;
   }
 
   .listItem{
@@ -122,4 +138,8 @@ body,html{
     font-size: 18px;
     line-height: 30px;
     margin: 3%;
+  }
+
+  .modal-content{
+    padding: 10px;
   }
