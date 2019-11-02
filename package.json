@@ -20,7 +20,7 @@
     "mysql2": "^1.6.5",
     "nodemailer": "^6.3.0",
     "nodemon": "^1.19.1",
-    "sequelize": "^5.10.1",
+    "sequelize": "^5.15.1",
     "usa-states": "0.0.5",
     "xml2js": "^0.4.19"
   },
