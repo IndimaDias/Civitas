@@ -16,7 +16,7 @@
     "dotenv": "^8.0.0",
     "ejs": "^2.6.2",
     "express": "^4.17.0",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^5.3.1",
     "mysql2": "^1.6.5",
     "nodemailer": "^6.3.0",
     "nodemon": "^1.19.1",
